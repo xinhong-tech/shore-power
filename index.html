@@ -81,7 +81,7 @@ img{max-width:100%}
   background:#fff;
   box-shadow:0 24px 60px rgba(0,0,0,.35);
   border:1px solid rgba(255,255,255,.25);
-  transform: translate(-18px, -700px); 
+  transform: translate(5px, -60px); 
 }
 @media(max-width:980px){
   .hero-flex{grid-template-columns:1fr;gap:34px}
@@ -101,8 +101,18 @@ img{max-width:100%}
   padding:0 12px;border-radius:8px;display:inline-block;transform:rotate(-.6deg)}
 .hero h1 .thin{font-weight:400;font-size:.61em;display:block;margin-top:14px;color:#ffc247;letter-spacing:1px； max-width: 500px;  line-height: 1.4;}
 @media(max-width: 980px){
-  .hero h1 .thin{
-    max-width: 100%; /* 只有在手机宽度小于980px时，才允许它撑满 */
+  .hero-flex{
+    grid-template-columns:1fr; /* 手机端变成上下单列 */
+    gap:34px;
+}
+   .hero-visual{
+    justify-content:center;
+    padding-top:0;
+    order:2; /* 让图片排在文字下方 */
+}
+.hero-visual img{
+    max-width:520px;
+    transform: none; /* 新增：手机上不进行任何位移，防止重叠！ */
   }}
 .hero p.lead{font-size:clamp(14.5px,1.6vw,17.5px);color:rgba(255,255,255,.82);max-width:760px;margin-bottom:16px}
 .hero p.lead b{color:#8ff0fa;font-weight:600}
@@ -300,6 +310,8 @@ footer b{color:#8ff0fa;font-weight:600}
 <!-- ===== HERO ===== -->
 <header class="hero">
   <div class="wrap">
+    <div class="hero-flex">
+     <div class="hero-copy">
     <div class="tagline"><i></i>划时代创新 · 船舶岸电无缝切换</div>
     <h1>
       无线智控 <em>无缝</em> 接岸电装置
